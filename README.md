@@ -1,4 +1,4 @@
-# hello-world
+# vue-3-components-prop-mutation-analysis-repository
 
 ## Project setup
 ```

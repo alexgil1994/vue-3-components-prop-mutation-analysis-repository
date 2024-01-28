@@ -1,19 +1,39 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
+    es2021: true,
     node: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/typescript/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "plugin:vue/vue3-recommended",
   ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
+  plugins: ["@typescript-eslint"],
+  // add your custom rules here
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    // "max-len": ["error", { code: 120 }],
+    "max-len": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-explicit-any":
+      "off" /* this should be eventually removed */,
+    "@typescript-eslint/no-useless-constructor": ["error"],
+    "prettier/prettier": ["warn"],
+    "vue/multi-word-component-names": ["warn"],
+    "vue/html-self-closing": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/html-indent": "off",
+    "vue/html-closing-bracket-newline": "off",
+  },
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: "latest",
+    sourceType: "module",
+    warnOnUnsupportedTypeScriptVersion: false,
   },
 };
